@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Neighborhood Map</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css">
+
+    <style>
+        .hotelList {
+            margin-top: 142px;
+        }
+
+        a#menu-toggle svg {
+            width: 40px;
+            fill: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="wrapper" class="toggled">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">Filter results</a>
+            </li>
+            <li>
+                <input class="filter-input" data-bind="textInput: filter, valueUpdate:'afterkeydown'" placeholder="Search hotels">
+            </li>
+        </ul>
+        <ul data-bind="foreach: filteredSpaceList, visible: filteredSpaceList().length > 0" class="sidebar-nav hotelList">
+                <li data-bind="text: name, click: $root.itemClick"></li>
+        </ul>
+    </div>
+    <header class="single-row">
+        <a id="menu-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"/>
+            </svg>
+        </a>
+        <h3>Neighborhood Map</h3>
+    </header>
+
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="map"></div>
+                    <div id="map-error" class="map-error"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- jQuery -->
+    <script src="js/lib/jquery.js"></script>
+
+    <!-- Libraries used -->
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/knockout-3.4.2.js"></script>
+    <script src="js/map.js"></script>
+    <script>
+
+    if (window.matchMedia('(max-width:767px)').matches)
+    {
+        // do functionality on screens smaller than 768px
+        document.getElementById("wrapper").classList.remove('toggled');
+    }
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtt6iRuzA4opWq4fS7at0TRPrNJtM7LQA&v=3&callback=initMap" onerror="mapError()">
+    </script>
+</body>
+</html>
