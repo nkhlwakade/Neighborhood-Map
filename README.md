@@ -6,7 +6,7 @@ Simply visit the given link to see the live version : [Click Here](https://nkhlw
 
 OR
 
-1. Download or Clone the repository from GitHub on your computer from [here](https://github.com/nkhlwakade/nkhlwakade.github.io.git).
+1. Download or Clone the repository from GitHub on your computer from [here](https://github.com/nkhlwakade/Neighborhood-Map.git).
 2. Open index.html in any browser.
 
 ## Libraries, frameworks and APIs used
